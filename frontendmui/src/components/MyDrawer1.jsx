@@ -6,6 +6,7 @@ import {
   ListItemIcon,
 } from "@material-ui/core";
 import React from "react";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -30,16 +31,18 @@ function MyDrawer1(props) {
     >
       <List>
         {["Nokia", "Samsung"].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button key={index}>
             {/* <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon> */}
             <ListItemText
               primary={text}
               onClick={() => {
+                console.log(`Clicked on ${text}`);
                 history.push(`/mobiles/${text.toLowerCase()}`);
               }}
             />
+            {/* <ListItem></ListItem> */}
           </ListItem>
         ))}
       </List>

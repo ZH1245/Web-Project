@@ -36,9 +36,13 @@ function NavigationBar() {
 
   return (
     <React.Fragment>
-      <AppBar color="inherit" position="static">
+      <AppBar color="primary" position="static">
         <Toolbar>
-          <IconButton className={classes.menuBtn} onClick={toggleDrawer}>
+          <IconButton
+            className={classes.menuBtn}
+            onClick={toggleDrawer}
+            color="inherit"
+          >
             <MenuIcon />
           </IconButton>
           <Button
@@ -60,9 +64,19 @@ function NavigationBar() {
             Popular
           </Button>
           <InputBase
+            color="inherit"
             placeholder="Search for Mobile Phone"
             className={classes.Search}
           ></InputBase>
+          <Button
+            variant="primary"
+            color="inherit"
+            onClick={() => {
+              history.push("/login");
+            }}
+          >
+            Login / Signup
+          </Button>
         </Toolbar>
       </AppBar>
       <MyDrawer
