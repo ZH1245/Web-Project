@@ -3,14 +3,14 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemIcon,
+  // ListItemIcon,
 } from "@material-ui/core";
 import React from "react";
 // import CssBaseline from "@material-ui/core/CssBaseline";
-import { useState } from "react";
+// import { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+// import InboxIcon from "@material-ui/icons/MoveToInbox";
+// import MailIcon from "@material-ui/icons/Mail";
 import { useHistory } from "react-router-dom";
 const useStyle = makeStyles({
   drawer: {
@@ -40,6 +40,7 @@ function MyDrawer1(props) {
               onClick={() => {
                 console.log(`Clicked on ${text}`);
                 history.push(`/mobiles/${text.toLowerCase()}`);
+                props.closeDrawer();
               }}
             />
             {/* <ListItem></ListItem> */}

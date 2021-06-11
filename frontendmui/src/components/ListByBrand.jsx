@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import MyLayout from "../layout/MyLayout";
 import MyCard from "./MyCard";
 import NavigationBar from "./NavigationBar1";
 
@@ -29,7 +30,8 @@ function ListByBrand() {
   }, [brand]);
   return (
     <div>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
+      <MyLayout />
       {isloading ? (
         <CircularProgress />
       ) : (
