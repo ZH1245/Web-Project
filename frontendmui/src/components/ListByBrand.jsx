@@ -4,7 +4,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import MyLayout from "../layout/MyLayout";
-import MyCard from "./MyCard";
+// import MyCard from "./MyCard";
+import MyBox from "./MyBox";
 import NavigationBar from "./NavigationBar1";
 
 function ListByBrand() {
@@ -39,7 +40,8 @@ function ListByBrand() {
           {data.map((item, index) => {
             return (
               <Grid item md={3} key={index}>
-                <MyCard
+                {/* <MyCard */}
+                <MyBox
                   description={item.description}
                   title={item.name}
                   year={item.year}

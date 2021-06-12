@@ -3,7 +3,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import NavigationBar from "./NavigationBar1";
 import { Grid } from "@material-ui/core";
-import MyCard from "./MyCard";
+// import MyCard from "./MyCard";
+import MyBox from "./MyBox";
 import axios from "axios";
 
 const gridItem = 3;
@@ -49,15 +50,16 @@ function Trending() {
         <Grid container spacing={2}>
           {data.map((item, index) => {
             return (
-              <Grid item md={gridItem} key={index}>
-                <MyCard
-                  description={item.description}
-                  title={item.name}
-                  year={item.year}
-                  price={item.price}
-                  imageurl={item.posterimage}
-                />
-              </Grid>
+              // <Grid item md={gridItem} key={index}>
+              // {/* <MyCard */}
+              <MyBox
+                description={item.description}
+                title={item.name}
+                year={item.year}
+                price={item.price}
+                imageurl={item.posterimage}
+              />
+              // </Grid>
             );
           })}
           ``

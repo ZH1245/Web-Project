@@ -64,7 +64,8 @@ function NavigationBar() {
             Popular
           </Button>
           <InputBase
-            color="inherit"
+            // color="primary"
+            style={{ color: "white", fontStyle: "italic" }}
             placeholder="Search for Mobile Phone"
             className={classes.Search}
           ></InputBase>
