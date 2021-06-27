@@ -32,6 +32,7 @@ function Mobile() {
   useEffect(() => {
     getData();
   }, [id]);
+
   const getData = async () => {
     setisloading(true);
     await client
@@ -64,110 +65,128 @@ function Mobile() {
       ) : mobile.length == 0 ? (
         <div>No Data Found</div>
       ) : (
-        <div
-          style={{
-            padding: 20,
-            margin: "0 auto",
-            display: "inline",
+        <>
+          <div
+            style={{
+              padding: 20,
+              margin: "0 auto",
+              display: "inline",
 
-            // justifyContent: "center",
-          }}
-        >
-          <img
-            src={mobile.mobileImage}
-            alt={`${mobile.name}_image`}
-            className="img-fluid"
-            width="400px"
-          />
-          <br />
+              // justifyContent: "center",
+            }}
+          >
+            <img
+              src={mobile.mobileImage}
+              alt={`${mobile.name}_image`}
+              className="img-fluid"
+              width="400px"
+            />
+            <br />
 
-          <Table responsive style={{ textAlign: "center" }}>
-            <thead>
-              <tr>
-                <td colSpan={2} style={{ textAlign: "center" }}>
-                  <Typography.Title level={3}>{mobile.name}</Typography.Title>
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{"Brand"}</td>
-                <td>{mobile.brand.name}</td>
-              </tr>
-              <tr>
-                <td>{"OS"}</td>
-                <td>{mobile.OS}</td>
-              </tr>
-              <tr>
-                <td>{"Back Camera"}</td>
-                <td>
-                  {mobile.backCamera.MP +
-                    "MP, Flash: " +
-                    mobile.backCamera.flash}
-                </td>
-              </tr>
-              <tr>
-                <td>{"Front Camera"}</td>
-                <td>
-                  {mobile.frontCamera.MP +
-                    "MP, Flash: " +
-                    mobile.frontCamera.flash}
-                </td>
-              </tr>
-              <tr>
-                <td>{"RAM"}</td>
-                <td>{mobile.RAM + " GB"}</td>
-              </tr>
-              <tr>
-                <td>{"STORAGE"}</td>
-                <td>{mobile.storage + " GB"}</td>
-              </tr>
-              <tr>
-                <td>{"Sensors"}</td>
-                <td>
-                  {mobile.sensor
-                    .map((item) => {
-                      return item.name;
-                    })
-                    .join(" , ")}
-                </td>
-              </tr>
-              <tr>
-                <td>{"Bluetooth"}</td>
-                <td>{mobile.bluetooth ? "Yes" : "No"}</td>
-              </tr>
-              <tr>
-                <td>{"NFC"}</td>
-                <td>{mobile.NFC ? "Yes" : "No"}</td>
-              </tr>
-              <tr>
-                <td>{"Radio"}</td>
-                <td>{mobile.radio ? "Yes" : "No"}</td>
-              </tr>
-              <tr>
-                <td>{"IP_Rating"}</td>
-                <td>{mobile.IP_Rating.join(" , ")}</td>
-              </tr>
-              <tr>
-                <td>{"Release Date"}</td>
-                <td>{mobile.relDate.split("T")[0]}</td>
-              </tr>
-              <tr>
-                <td>{"Price"}</td>
-                <td>{mobile.price + "/-RS"}</td>
-              </tr>
-              <tr>
-                <td>{"Status"}</td>
-                <td>{mobile.status}</td>
-              </tr>
-            </tbody>
-          </Table>
-          <div>
-            <Typography.Title level={2} strong>
-              User opinions & Comments
-            </Typography.Title>
-
+            <Table responsive style={{ textAlign: "center" }}>
+              <thead>
+                <tr>
+                  <td colSpan={2} style={{ textAlign: "center" }}>
+                    <Typography.Title level={3}>{mobile.name}</Typography.Title>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{"Brand"}</td>
+                  <td>{mobile.brand.name}</td>
+                </tr>
+                <tr>
+                  <td>{"OS"}</td>
+                  <td>{mobile.OS}</td>
+                </tr>
+                <tr>
+                  <td>{"Back Camera"}</td>
+                  <td>
+                    {mobile.backCamera.MP +
+                      "MP, Flash: " +
+                      mobile.backCamera.flash}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{"Front Camera"}</td>
+                  <td>
+                    {mobile.frontCamera.MP +
+                      "MP, Flash: " +
+                      mobile.frontCamera.flash}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{"RAM"}</td>
+                  <td>{mobile.RAM + " GB"}</td>
+                </tr>
+                <tr>
+                  <td>{"STORAGE"}</td>
+                  <td>{mobile.storage + " GB"}</td>
+                </tr>
+                <tr>
+                  <td>{"Sensors"}</td>
+                  <td>
+                    {mobile.sensor
+                      .map((item) => {
+                        return item.name;
+                      })
+                      .join(" , ")}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{"Bluetooth"}</td>
+                  <td>{mobile.bluetooth ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>{"NFC"}</td>
+                  <td>{mobile.NFC ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>{"Radio"}</td>
+                  <td>{mobile.radio ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>{"IP_Rating"}</td>
+                  <td>{mobile.IP_Rating.join(" , ")}</td>
+                </tr>
+                <tr>
+                  <td>{"Release Date"}</td>
+                  <td>{mobile.relDate.split("T")[0]}</td>
+                </tr>
+                <tr>
+                  <td>{"Price"}</td>
+                  <td>{mobile.price + "/-RS"}</td>
+                </tr>
+                <tr>
+                  <td>{"Status"}</td>
+                  <td>{mobile.status}</td>
+                </tr>
+              </tbody>
+            </Table>
             <div>
+              <Typography.Title level={2} strong>
+                User opinions & Comments
+              </Typography.Title>
+              {comments.length == 0 ? (
+                <div>No Comments Yet</div>
+              ) : (
+                <div>
+                  {comments.map((item) => {
+                    return (
+                      <Comments
+                        description={item.description}
+                        time={item.time}
+                        key={item._id}
+                        id={item._id}
+                        userId={item.userId._id}
+                        name={item.userId.firstName}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+              {/* <div>
               {comments.map((item) => {
                 return (
                   <Comments
@@ -180,17 +199,18 @@ function Mobile() {
                   />
                 );
               })}
-            </div>
+            </div> */}
 
-            {userDetails.loggedIn && (
-              <div>
-                <Typography.Title level={3}>Add Comments</Typography.Title>
-                {/* <div>Hi Zain Rondo You can add here fucking comments</div> */}
-                <AddComment mobileId={mobile._id} />
-              </div>
-            )}
+              {userDetails.loggedIn && (
+                <div>
+                  <Typography.Title level={3}>Add Comments</Typography.Title>
+                  {/* <div>Hi Zain Rondo You can add here fucking comments</div> */}
+                  <AddComment mobileId={mobile._id} />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </MyLayout>
   );

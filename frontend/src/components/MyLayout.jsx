@@ -85,7 +85,7 @@ function Nav(props) {
                 })
               )}
             </SubMenu>
-            <Menu.Item key="search">Filter Search</Menu.Item>
+            {/* <Menu.Item key="search">Filter Search</Menu.Item> */}
             <Menu.Item
               key="popularity"
               onClick={() => {

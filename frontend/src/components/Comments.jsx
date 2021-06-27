@@ -24,7 +24,7 @@ function Comments(props) {
   };
   return (
     <Comment
-      style={{ display: "flex", textAlign: "center" }}
+      // style={{ display: "flex", textAlign: "center" }}
       // actions={actions}
       id={props.key}
       key={props.key}
@@ -34,7 +34,12 @@ function Comments(props) {
       userid={props.userId}
       datetime={
         <Tooltip title={new Date(props.time).toLocaleTimeString()}>
-          <span>{moment().fromNow()}</span>
+          {/* <span>{moment().fromNow()}</span> */}
+          <span>
+            {new Date(props.time).toDateString() +
+              " " +
+              new Date(props.time).toLocaleTimeString()}
+          </span>
         </Tooltip>
       }
     >

@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import MyLayout from "../components/MyLayout";
 import { LoadingOutlined } from "@ant-design/icons";
 
-import { Spin } from "antd";
+import { Spin, Typography } from "antd";
 
 // import { useHistory } from "react-router-dom";
 import { useParams } from "react-router";
@@ -19,7 +19,6 @@ function Brands() {
   // const params = useParams();
   const [isloading, setisloading] = useState(true);
   const [data, setData] = useState([]);
-  // const [brands, setbrands] = useState([]);
 
   const { id } = useParams();
   // const { name } = useParams();
@@ -60,22 +59,28 @@ function Brands() {
         <div style={{ margin: "0 auto" }}>
           <Spin indicator={antIcon} size="large" />
         </div>
+      ) : data.length >= 0 ? (
+        <>
+          <Row>
+            {data.map((item) => {
+              return (
+                <Col>
+                  <MyCard
+                    title={item.name}
+                    imageurl={item.posterimage}
+                    price={item.price}
+                    key={item._id}
+                    _id={item._id}
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </>
       ) : (
-        <Row>
-          {data.map((item) => {
-            return (
-              <Col>
-                <MyCard
-                  title={item.name}
-                  imageurl={item.posterimage}
-                  price={item.price}
-                  key={item._id}
-                  _id={item._id}
-                />
-              </Col>
-            );
-          })}
-        </Row>
+        <>
+          <div>NO DATA</div>
+        </>
       )}
     </MyLayout>
   );
